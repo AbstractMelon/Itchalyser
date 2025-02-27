@@ -1,0 +1,2 @@
+# Itchalyser
+Itch statistics finder!
