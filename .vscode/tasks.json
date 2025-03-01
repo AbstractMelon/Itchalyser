@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build for Windows on Windows",
+      "type": "shell",
+      "command": "cd src && go build -o ../builds/windows/Itchalyser.exe main.go",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build for Linux on Windows",
+      "type": "shell",
+      "command": "cd src && set GOOS=linux && go build -o ../builds/windows/Itchalyser main.go",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build for Linux on Linux",
+      "type": "shell",
+      "command": "cd src && go build -o ../builds/linux/Itchalyser main.go",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build for Windows on Linux",
+      "type": "shell",
+      "command": "cd src && GOOS=windows GOARCH=amd64 go build -o ../builds/windows/Itchalyser.exe main.go",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build for Android on Linux",
+      "type": "shell",
+      "command": "cd src && GOOS=android GOARCH=arm64 go build -o ../builds/android/Itchalyser main.go",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build for Android on Windows",
+      "type": "shell",
+      "command": "cd src && set GOOS=android && set GOARCH=arm64 && go build -o ../builds/android/Itchalyser main.go",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build all on Linux",
+      "type": "shell",
+      "command": "cd src && go build -o ../builds/linux/Itchalyser main.go && GOOS=windows GOARCH=amd64 go build -o ../builds/windows/Itchalyser.exe main.go && GOOS=android GOARCH=arm64 go build -o ../builds/android/Itchalyser main.go",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build all on Windows",
+      "type": "shell",
+      "command": "cd src && go build -o ../builds/windows/Itchalyser.exe main.go && set GOOS=linux && go build -o ../builds/windows/Itchalyser main.go && set GOOS=android && set GOARCH=arm64 && go build -o ../builds/android/Itchalyser main.go",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
